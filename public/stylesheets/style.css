@@ -1,0 +1,19 @@
+body {
+	color: #CCC;
+	background: #333;
+}
+
+a {
+	color: #c75f3e;
+}
+
+.clear {
+clear: both;
+}
+
+
+.container {
+margin: 0 auto;
+width: 700px;
+}
+
