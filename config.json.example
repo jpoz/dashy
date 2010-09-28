@@ -1,6 +1,13 @@
 {
-  "github": {
-    "username":"username",
-    "token":"t0k3n"
-  }
+  repos: [
+    {
+      "auth": {
+        "username":"username",
+        "token":"t0k3n"
+      },
+      username: 'jpoz',
+      repo: 'dashy',
+      branch: 'master'
+    }
+  ]
 }
