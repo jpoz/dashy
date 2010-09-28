@@ -1,3 +1,5 @@
 make a config.json
 
+$ redis-server
+
 $ node server.js
