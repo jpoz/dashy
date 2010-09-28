@@ -12,9 +12,13 @@ var Dashy = {
         var array = e.list;
         var timeout = 0
         $.each(array, function( i, d ){
-          data = JSON.parse(d);
-          console.log(data);
-          self.list.prepend(self.build(data));
+          var data = JSON.parse(d);
+          setTimeout(function(data) {
+            var event_div = self.build(data);
+            self.list.prepend(event_div);
+            event_div.addClass('incoming');
+          }, 100*i, data)
+
         })
 
         self.get(e.revision);

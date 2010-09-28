@@ -1,0 +1,60 @@
+@-webkit-keyframes flipit {
+    0% {
+      -webkit-transform:rotatey(180deg);
+    }
+
+    100% {
+      -webkit-transform:rotatey(0deg)
+    } 
+}
+
+@-webkit-keyframes flipit {
+    0% {
+      -webkit-transform:rotatey(180deg);
+    }
+
+    100% {
+      -webkit-transform:rotatey(0deg);
+    } 
+}
+
+@-webkit-keyframes floatit {
+    0% {
+      -webkit-transform:scale(2) rotatey(360deg) translateY(100%);
+
+      
+      background: green;
+      opacity: 0;
+    }
+
+    100% {
+      -webkit-transform:scale(1) rotatey(0deg) translateY(0%);
+      
+      opacity: 1;
+    } 
+}
+
+@-webkit-keyframes fadeit {
+    0% {
+      -webkit-transform:scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform:scale(0);
+      opacity: 0;
+    } 
+}
+
+
+.incoming {
+  -webkit-backface-visibility: hidden;
+  -webkit-animation-name: floatit;
+  -webkit-animation-duration: 1s;
+}
+
+.outgoing {
+  -webkit-backface-visibility: hidden;
+  -webkit-animation-name: fadeit;
+  -webkit-animation-duration: 1s;
+}
