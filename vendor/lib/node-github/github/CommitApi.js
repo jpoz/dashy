@@ -51,5 +51,23 @@ sys.inherits(CommitApi, AbstractApi);
             this.$createListener(callback, "commits")
         );
     };
+    
+    /**
+     * List commits by username, repo, branch and path
+     * http://develop.github.com/p/commits.html#listing_commits_for_a_file
+     *
+     * @param {String}  username         the username
+     * @param {String}  repo             the repo
+     * @param {String}  sha              the sha
+     */
+    this.showCommit = function(username, repo, sha, callback)
+    {
+        this.$api.get(
+            //commits/show/:user_id/:repository/:sha
+            'commits/show/' + encodeURI(username) + "/" + encodeURI(repo) + "/" + encodeURI(sha),
+            null, null,
+            this.$createListener(callback, "commit")
+        );
+    };
 
 }).call(CommitApi.prototype);

@@ -1,13 +1,20 @@
 {
-  repos: [
-    {
-      "auth": {
-        "username":"username",
-        "token":"t0k3n"
-      },
-      username: 'jpoz',
-      repo: 'dashy',
-      branch: 'master'
+  "engines": {
+    "github": [
+      {
+        "auth": {
+          "username":"username",
+          "token":"t0k3n"
+        },
+        username: 'jpoz',
+        repo: 'dashy',
+        branch: 'master'
+      }
+    ]
+  },
+  "users": {
+    "jpoz" {
+      "name":"James Pozdena",
     }
-  ]
+  }
 }
