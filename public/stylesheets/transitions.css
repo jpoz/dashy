@@ -58,3 +58,41 @@
   -webkit-animation-name: fadeit;
   -webkit-animation-duration: 1s;
 }
+
+@-webkit-keyframes swap_out {
+    0% {
+      -webkit-transform:scale(1) rotatey(0deg) translateX(0%);
+      display: block;
+      z-index: 999;
+    }
+
+    100% {
+      -webkit-transform:scale(0) rotatey(0deg) translateX(-100%);;
+      z-index: 0;
+      display: none;
+    } 
+}
+
+.swap_out {
+  -webkit-animation-name: swap_out;
+  -webkit-animation-duration: 1s;  
+}
+
+@-webkit-keyframes swap_in {
+    0% {
+      -webkit-transform:scale(0) rotatey(0deg) translateX(100%);;
+      z-index: 0;
+      display: none;
+    }
+
+    100% {
+      -webkit-transform:scale(1) rotatey(0deg) translateX(0%);
+      display: block;
+      z-index: 999;
+    } 
+}
+
+.swap_in {
+  -webkit-animation-name: swap_in;
+  -webkit-animation-duration: 1s;
+}

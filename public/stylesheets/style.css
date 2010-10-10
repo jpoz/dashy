@@ -1,10 +1,18 @@
 body {
-	color: #CCC;
-	background: #333;
+	color: #7FD4F6;
+	background: #1573A4;
+	overflow: hidden;
+	font-family: Arial;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
 }
 
 a {
-	color: #c75f3e;
+  text-decoration: none;
+	color: #1573A4;
 }
 
 .clear {
@@ -16,4 +24,33 @@ clear: both;
 margin: 0 auto;
 width: 700px;
 }
+
+#content {
+  overflow: hidden;
+}
+.panel {
+  background: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
+/* EVENTS */
+
+#event_list {
+  
+}
+
+  #event_list .event {
+    text-align: left;
+    color: #555;
+    padding: 5px;
+    margin: 10px;
+    border-bottom: 3px dotted #1573A4;
+  }
+  
+  #event_list .event .link_1 {
+    padding: 0px 4px;
+  }
 
