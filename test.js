@@ -1,10 +1,20 @@
+require.paths.unshift("vendor/lib")
+
 var sys = require("sys"),
-    fs  = require("fs");
+    fs  = require("fs"),
+    base64 = require("base64")
     
-diff = fs.readFileSync('test.diff').toString();
-
-var removed_lines = diff.match(/^\-([^\-]*)$/mig).length;
-var added_lines = diff.match(/^\+([^\+]*)$/mig).length;
-
-console.log(removed_lines);
-console.log(added_lines);
+    
+var http = require('http');
+var unfuddle = http.createClient(80, 'elc.unfuddle.com');
+var auth = "Basic " + base64.encode("dashy" + ':' + "codeSp1");
+var request = unfuddle.request('GET', '/api/v1/repositories/435844/changesets.json',{"host":'elc.unfuddle.com',"Authorization":auth});
+request.end();
+request.on('response', function (response) {
+  console.log('STATUS: ' + response.statusCode);
+  console.log('HEADERS: ' + JSON.stringify(response.headers));
+  response.setEncoding('utf8');
+  response.on('data', function (chunk) {
+    console.log('BODY: ' + chunk);
+  });
+});

@@ -1,9 +1,3 @@
-$(function() {
-  DashyEvents.init('#event_list');
-  DashyScores.init('#score_container');
-  DashyViews.init(".dashy_view");
-});
-
 var DashyEvents = {
   init: function(list_selector) {
     this.get(0);
@@ -22,7 +16,7 @@ var DashyEvents = {
           setTimeout(function(data) {
             var event_div = self.build(data);
             self.list.prepend(event_div);
-            event_div.addClass('incoming');
+            // event_div.addClass('incoming');
           }, 100*i, data)
 
         })
@@ -33,27 +27,31 @@ var DashyEvents = {
   },
   build: function(event) {
     var title = $('<h3/>', {
+      "class": "title",
       html: event.title
     });
     var subtitle = $('<div/>', {
+      "class":"subtitle",
       html: event.subtitle
     });
     var actor     = $('<strong/>', {
       html: event.actor
     })
     var link_1     = $('<a/>', {
+      "class":"link_1",
       href: event.link_1_url,
       target: '_blank',
       html: event.link_1_title
     })
     
     var container = $('<div/>', {
+      "class": "event",
       html: ""
     });
     
     container
-      .append(actor).append(link_1)
       .append(title)
+      .append(actor).append(link_1)
       .append(subtitle);
     
     return container;
@@ -105,22 +103,42 @@ var DashyViews = {
   init: function(selector) {
     this.views = $(selector);
     this.views.hide();
-    console.log(this.views);
     this.current_view = -1;
+
+    var height = $(window).height();
+    var width = $(window).width();
+    
+    this.views.css({
+      height: height+"px",
+      width: width+"px"
+    });
+
     this.go();
+
   },
   timeout: 5000,
+  animation_length: 1000, // has to match the time in transitions.css
   go: function() {
     var old_view = this.current_view;
     if (this.current_view >= 0) {
-      console.log("FadeOut", old_view);
-      $(this.views[old_view]).fadeOut();
+      this.swap_out($(this.views[old_view]));
     }
     this.current_view = this.current_view + 1;
     if (this.current_view > this.views.length-1) this.current_view = 0;
-    console.log("fadeIn", this.current_view);
-    $(this.views[this.current_view]).fadeIn();
+    this.swap_in($(this.views[this.current_view]));
     setTimeout(function() { DashyViews.go() }, DashyViews.timeout);
+  },
+  swap_out: function(going_out) {
+    going_out.addClass('swap_out');
+    setTimeout(function() {
+      going_out.removeClass('swap_out').hide();
+    }, DashyViews.animation_length);
+  },
+  swap_in: function(going_in) {
+    going_in.show().addClass('swap_in');
+    setTimeout(function() {
+      going_in.removeClass('swap_in');
+    }, 5000);
   }
 }
 
