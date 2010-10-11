@@ -1,20 +1,12 @@
 require.paths.unshift("vendor/lib")
 
 var sys = require("sys"),
-    fs  = require("fs"),
-    base64 = require("base64")
+    d  = require("datejs");
     
-    
-var http = require('http');
-var unfuddle = http.createClient(80, 'elc.unfuddle.com');
-var auth = "Basic " + base64.encode("dashy" + ':' + "codeSp1");
-var request = unfuddle.request('GET', '/api/v1/repositories/435844/changesets.json',{"host":'elc.unfuddle.com',"Authorization":auth});
-request.end();
-request.on('response', function (response) {
-  console.log('STATUS: ' + response.statusCode);
-  console.log('HEADERS: ' + JSON.stringify(response.headers));
-  response.setEncoding('utf8');
-  response.on('data', function (chunk) {
-    console.log('BODY: ' + chunk);
-  });
-});
+var s = '2010-07-25T02:04:24-7:00'
+
+
+var u = Date.parse(sanitizeDate(s));
+
+console.log(new Date(u));
+
