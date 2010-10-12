@@ -19,7 +19,13 @@
 	    "follow": [12345, 67890],                  // follow these random users
 	    "locations": [-122.75, 36.8, -121.75, 37.8] // tweets in SF
       }
-    ]
+    ],
+	"trimet": [
+	{
+	    "id":"XXXXXXXXXXXXXXXXXXXXXXXX",  // Our gangster TriMet Developer Id
+	    "locIDs":10755                  // 11th and Everet Portland Or
+	}
+	]
   },
   "users": {
     "jpoz" {
